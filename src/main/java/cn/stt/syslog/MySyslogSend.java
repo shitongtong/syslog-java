@@ -8,10 +8,12 @@ import java.net.URLDecoder;
 import java.util.Date;
 
 /**
+ * 发送端
+ *
  * @Author shitt7
  * @Date 2020/5/19 8:44
  */
-public class MySyslogClient {
+public class MySyslogSend {
     private static final String HOST = "127.0.0.1";
     private static final int PORT = 514;
 
@@ -54,6 +56,6 @@ public class MySyslogClient {
     }
 
     public static void main(String[] args) {
-        new MySyslogClient().generate();
+        new MySyslogSend().generate();
     }
 }

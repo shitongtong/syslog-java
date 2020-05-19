@@ -10,10 +10,12 @@ import org.graylog2.syslog4j.server.SyslogServerSessionEventHandlerIF;
 import java.net.SocketAddress;
 
 /**
+ * 接收端
+ *
  * @Author shitt7
  * @Date 2020/5/19 8:41
  */
-public class MySyslogServer {
+public class MySyslogReceive {
     //无意义
     private final Object lock = new Object();
 
@@ -59,16 +61,16 @@ public class MySyslogServer {
         });
         SyslogServer.getThreadedInstance(SyslogConstants.UDP);
 //        Thread.sleep(100000);
-        synchronized (lock){
+        synchronized (lock) {
             lock.wait();
         }
     }
 
 
     public static void main(String[] args) throws InterruptedException {
-        MySyslogServer mySyslogServer = new MySyslogServer();
+        MySyslogReceive mySyslogServer = new MySyslogReceive();
 //        while (true){
-            mySyslogServer.receiveSyslogMessage();
+        mySyslogServer.receiveSyslogMessage();
 //        }
     }
 }
